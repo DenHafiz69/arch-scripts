@@ -4,8 +4,8 @@
 
 # Check for root privileges
 if [[ $EUID -ne 0 ]]; then
-   echo "Please run this script with sudo."
-   exit 1
+   echo "Elevating privileges... Please enter your password if prompted."
+   exec sudo "$0" "$@"
 fi
 
 # Get the active network connection name
